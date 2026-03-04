@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0d0d0f, #1b1b2f);
+    color: #fff;
+    display: flex;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #111;
+    padding: 10px;
+    position: fixed;
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00f7ff;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.sidebar ul li {
+    padding: 14px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.sidebar ul li.active,
+.sidebar ul li:hover {
+    background: rgba(0, 247, 255, 0.1);
+    color: #00f7ff;
+}
+
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    width: calc(100% - 260px);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+header p {
+    margin-top: 4px;
+    color: #aaa;
+}
+
+.input-section {
+    margin-top: 30px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.field label {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.field input, 
+.field select {
+    width: 100%; /* All fields exactly equal width */
+    box-sizing: border-box; /* Prevents overflow */
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+.predict-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #00f7ff, #00aabb);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.predict-btn:hover {
+    box-shadow: 0 0 20px #00f7ff;
+}
+
+.results {
+    margin-top: 40px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1;
+    padding: 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+    text-align: center;
+    transition: transform .2s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.chart-container {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+}
+/* Stretch main content to fit full height */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    width: calc(100% - 260px);
+    min-height: 100vh; /* NEW: ensures full vertical stretch */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Meal cards layout */
+.cards {
+    display: flex;
+    flex-wrap: wrap; /* NEW: allows wrapping to next row */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual meal group card */
+.card {
+    flex: 1 1 300px; /* NEW: responsive width */
+    padding: 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+    text-align: left; /* NEW: better readability */
+    transition: transform .2s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); /* NEW: subtle depth */
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* Meal item text */
+.card p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Meal title */
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #00f7ff;
+}
