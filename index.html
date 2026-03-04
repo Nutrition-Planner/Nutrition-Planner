@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriPlanner Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2 class="logo">NutriPlanner</h2>
+        <ul>
+            <li id="nav-calorie" class="active">Calorie Predictor</li>
+            <li id="nav-meal">Meal Recommender</li>
+        </ul>
+    </div>
+
+    <!-- Calorie Predictor Full Page -->
+    <div id="calorie-section" class="main-content">
+        <header>
+            <h1>Calorie & Macro Prediction</h1>
+            <p>Enter your details to get personalized nutrition insights.</p>
+        </header>
+
+        <section class="input-section">
+            <div class="form-grid">
+                <div class="field"><label>Age</label><input id="Age" type="number" /></div>
+                <div class="field"><label>Weight (kg)</label><input id="Weight" type="number" /></div>
+                <div class="field"><label>Height (cm)</label><input id="Height" type="number" /></div>
+
+                <div class="field">
+                    <label>Activity</label>
+                    <select id="ActivityFactor">
+                        <option value="1.2">Sedentary</option>
+                        <option value="1.375">Light</option>
+                        <option value="1.55">Moderate</option>
+                        <option value="1.725">Active</option>
+                        <option value="1.9">Very Active</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Diet Preference</label>
+                    <select id="Preference">
+                        <option value="Veg">Veg</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                        <option value="Pescatarian">Pescatarian</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Fitness Goal</label>
+                    <select id="Goal">
+                        <option value="Maintain">Maintain</option>
+                        <option value="Gain">Gain</option>
+                        <option value="Loss">Loss</option>
+                    </select>
+                </div>
+
+                <div class="field"><label>BMR</label><input id="BMR" type="number" /></div>
+                <div class="field"><label>City</label><input id="city" type="text" /></div>
+                <div class="field"><label>Temperature (°C)</label><input id="Temperature" type="number" /></div>
+                <div class="field"><label>Humidity (%)</label><input id="Humidity" type="number" /></div>
+            </div>
+
+            <button id="predictBtn" class="predict-btn">Predict</button>
+        </section>
+
+        <section id="results" class="results hidden">
+            <h2>Your Personalized Nutrition Breakdown</h2>
+
+            <div class="cards">
+                <div class="card"><h3>Predicted Calories</h3><p id="calValue">---</p></div>
+                <div class="card"><h3>Protein (g)</h3><p id="proteinValue">---</p></div>
+                <div class="card"><h3>Fats (g)</h3><p id="fatValue">---</p></div>
+                <div class="card"><h3>Carbs (g)</h3><p id="carbValue">---</p></div>
+                <div class="card"><h3>Fiber (g)</h3><p id="fiberValue">---</p></div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="macroChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <!-- Meal Recommender Full Page -->
+    <div id="meal-section" class="main-content hidden">
+        <header>
+            <h1>Meal Recommender</h1>
+            <p>Enter your details to get a suggested meal plan.</p>
+        </header>
+
+        <section class="input-section">
+            <div class="form-grid">
+                <div class="field"><label>Calorie Target</label><input id="mr_calories" type="number" /></div>
+                <div class="field"><label>Preference</label>
+                    <select id="mr_pref">
+                        <option value="any">Any</option>
+                        <option value="veg">Veg</option>
+                        <option value="pescatarian">Pescatarian</option>
+                        <option value="non-veg">Non-Veg</option>
+                    </select>
+                </div>
+                <div class="field"><label>Goal</label>
+                    <select id="mr_goal">
+                        <option value="maintain">Maintain</option>
+                        <option value="gain">Gain</option>
+                        <option value="lose">Lose</option>
+                    </select>
+                </div>
+                <div class="field"><label>City</label><input id="mr_city" type="text" /></div>
+                <div class="field"><label>Temperature (°C)</label><input id="mr_temp" type="number" /></div>
+            </div>
+            <button id="mrBtn" class="predict-btn">Get Meal Plan</button>
+        </section>
+
+        <section id="mr_results" class="results hidden">
+            <h2>Your Recommended Meal Plan</h2>
+            <div class="cards" id="mealPlanCards"></div>
+        </section>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
